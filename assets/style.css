@@ -1,3 +1,110 @@
+/*LOGIN*/
+
+/* Styling Modern Glassmorphism - Sage Edition */
+.login-body {
+    background: linear-gradient(135deg, #F0F0F0 0%, #D9E9CF 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Poppins', sans-serif; /* Pastikan font rapi */
+}
+
+.login-card {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px); /* Efek kaca */
+    padding: 50px 40px;
+    border-radius: 40px; /* Sudut melengkung besar sesuai referensi */
+    box-shadow: 0 20px 40px rgba(150, 167, 141, 0.2);
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.login-card h1 {
+    color: #96A78D;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 40px;
+    letter-spacing: -1px;
+}
+
+.form-group {
+    text-align: left;
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #444;
+    margin-left: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 15px 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1.5px solid #D9E9CF;
+    border-radius: 15px; /* Input lonjong sesuai referensi */
+    box-sizing: border-box;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #96A78D;
+    box-shadow: 0 5px 15px rgba(150, 167, 141, 0.1);
+}
+
+.btn-masuk {
+    width: 100%;
+    padding: 16px;
+    background-color: #96A78D;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.3s;
+    margin-top: 15px;
+    box-shadow: 0 10px 20px rgba(150, 167, 141, 0.3);
+}
+
+.btn-masuk:hover {
+    background-color: #7d8d74;
+    transform: translateY(-2px);
+}
+
+.login-footer {
+    margin-top: 30px;
+    font-size: 0.85rem;
+    color: #777;
+}
+
+.login-footer a {
+    color: #96A78D;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+/* Link kecil seperti 'lupa password' */
+.small-link {
+    display: block;
+    margin-top: 15px;
+    font-size: 0.8rem;
+    color: #999;
+    text-decoration: none;
+}
+
+/*DASHBOARD*/
+
 :root {
     --primary: #96A78D;    /* Hijau Gelap */
     --secondary: #B6CEB4;  /* Hijau Sage */
