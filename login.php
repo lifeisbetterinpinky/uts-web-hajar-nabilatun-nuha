@@ -21,27 +21,32 @@ if (isset($_POST['login'])) {
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Monitoring Alat Lab</title>
+    <title>Login to your account</title>
     <link rel="stylesheet" href="assets/style.css">
 </head>
-<body class="login-page">
-    <div class="login-container">
-        <h2>Login Sistem Lab</h2>
-        <?php if(isset($error)) { echo "<p class='error'>$error</p>"; } ?>
+<body class="login-body">
+    <div class="login-card">
+        <h1>login to your account</h1>
+        
+        <?php if(isset($error)) { echo "<p style='color: #c0392b; font-size: 0.8rem; margin-bottom: 10px;'>$error</p>"; } ?>
         
         <form action="" method="POST">
             <div class="form-group">
-                <label>Username</label>
-                <input type="text" name="username" required placeholder="Masukkan username">
+                <label>Username / Email Address</label>
+                <input type="text" name="username" placeholder="Enter your username" required>
             </div>
             <div class="form-group">
                 <label>Password</label>
-                <input type="password" name="password" required placeholder="Masukkan password">
+                <input type="password" name="password" placeholder="Enter your password" required>
             </div>
-            <button type="submit" name="login" class="btn-login">Masuk</button>
+            <button type="submit" name="login" class="btn-masuk">Login</button>
         </form>
-        <p class="footer-text">UTS Praktikum Pemrograman Web 1</p>
+        
+        <a href="#" class="small-link">lupa password?</a>
+        <div class="login-footer">
+            UTS Praktikum Pemrograman Web 1 <br>
+            Don't have an account? <a href="register.php">Register</a>
+        </div>
     </div>
 </body>
 </html>
