@@ -3,26 +3,57 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Monitoring Alat Lab - UTS</title>
     <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-    <nav>
+    <nav class="navbar">
         <h2>Sistem Monitoring Lab</h2>
-        <a href="tambah.php">Tambah Alat Baru</a>
+        <div class="menu">
+            <a href="index.php">Dashboard</a>
+            <a href="tambah.php" class="btn-tambah">Tambah Alat Baru</a>
+            <a href="logout.php">Logout</a>
+        </div>
     </nav>
 
-    <main>
+    <main class="container">
         <h3>Daftar Inventaris Alat</h3>
-        <table border="1" cellpadding="10">
-            <tr>
-                <th>No</th>
-                <th>Nama Alat</th>
-                <th>Merk</th>
-                <th>Status</th>
-                <th>Aksi</th>
-            </tr>
-            </table>
+        
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Nama Alat</th>
+                    <th>Merk</th>
+                    <th>Status</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                // Logika PHP untuk mengambil data (Read)
+                $no = 1;
+                $query = mysqli_query($koneksi, "SELECT * FROM alat_lab");
+                while($data = mysqli_fetch_array($query)){
+                ?>
+                <tr>
+                    <td><?php echo $no++; ?></td>
+                    <td><?php echo $data['nama_alat']; ?></td>
+                    <td><?php echo $data['merk']; ?></td>
+                    <td>
+                        <span class="badge <?php echo strtolower($data['status']); ?>">
+                            <?php echo $data['status']; ?>
+                        </span>
+                    </td>
+                    <td>
+                        <a href="edit.php?id=<?php echo $data['id']; ?>" class="btn-edit">Edit</a>
+                        <a href="hapus.php?id=<?php echo $data['id']; ?>" class="btn-hapus" onclick="return confirm('Yakin hapus?')">Hapus</a>
+                    </td>
+                </tr>
+                <?php } ?>
+            </tbody>
+        </table>
     </main>
 </body>
 </html>
