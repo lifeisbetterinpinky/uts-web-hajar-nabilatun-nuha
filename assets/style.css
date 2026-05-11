@@ -1,53 +1,88 @@
+:root {
+    --primary: #96A78D;    /* Hijau Gelap */
+    --secondary: #B6CEB4;  /* Hijau Sage */
+    --light: #D9E9CF;      /* Hijau Muda */
+    --bg-body: #F0F0F0;    /* Abu-abu Terang */
+    --white: #ffffff;
+}
+
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f4f7f6;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-body);
     margin: 0;
-    color: #333;
+    padding: 0;
 }
 
 .navbar {
-    background: #2c3e50;
-    color: white;
-    padding: 1rem 5%;
+    background-color: var(--primary);
+    color: var(--white);
+    padding: 15px 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-.navbar .menu a {
-    color: white;
+.navbar h2 { margin: 0; font-size: 1.5rem; }
+
+.menu a {
+    color: var(--white);
     text-decoration: none;
     margin-left: 20px;
+    font-weight: 500;
+    transition: 0.3s;
 }
 
-/* Container utama */
+.menu a:hover { color: var(--light); }
+
 .container {
     width: 90%;
-    margin: 20px auto;
+    max-width: 1100px;
+    margin: 30px auto;
 }
+
+h3 { color: var(--primary); border-left: 5px solid var(--primary); padding-left: 10px; }
 
 .styled-table {
     width: 100%;
     border-collapse: collapse;
-    background: white;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    background: var(--white);
+    border-radius: 8px;
+    overflow: hidden; /* Agar sudut melengkung terlihat */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
 
 .styled-table thead tr {
-    background-color: #3498db;
-    color: #ffffff;
+    background-color: var(--secondary);
+    color: #444;
     text-align: left;
 }
 
-.styled-table th, .styled-table td {
-    padding: 12px 15px;
-    border-bottom: 1px solid #ddd;
-}
+.styled-table th, .styled-table td { padding: 15px 20px; }
+
+.styled-table tbody tr { border-bottom: 1px solid #eee; transition: 0.2s; }
+
+.styled-table tbody tr:hover { background-color: var(--light); }
 
 .btn-tambah {
-    background: #2ecc71;
+    background-color: var(--primary);
     color: white;
-    padding: 8px 15px;
-    border-radius: 4px;
+    padding: 10px 20px;
     text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    margin-bottom: 20px;
 }
+
+.btn-edit { color: #2980b9; text-decoration: none; font-weight: bold; margin-right: 10px; }
+.btn-hapus { color: #c0392b; text-decoration: none; font-weight: bold; }
+
+.badge {
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+.baik { background-color: #d4edda; color: #155724; }
+.rusak { background-color: #f8d7da; color: #721c24; }
+.maintenance { background-color: #fff3cd; color: #856404; }
