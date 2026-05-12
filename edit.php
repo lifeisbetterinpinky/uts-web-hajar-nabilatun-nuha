@@ -2,17 +2,11 @@
 include 'config/koneksi.php';
 session_start();
 
-// Cek apakah user sudah login (opsional, tergantung sistemmu)
-// if ($_SESSION['status'] != "login") {
-//     header("location:login.php");
-// }
-
-// Mengambil ID dari parameter URL yang dikirim index.php
 $id = $_GET['id'];
 $query = mysqli_query($koneksi, "SELECT * FROM alat_lab WHERE id='$id'");
 $d = mysqli_fetch_array($query);
 
-// Proses saat tombol SIMPAN diklik
+
 if (isset($_POST['update'])) {
     $nama   = $_POST['nama_alat'];
     $merk   = $_POST['merk'];
@@ -21,7 +15,7 @@ if (isset($_POST['update'])) {
     $update = mysqli_query($koneksi, "UPDATE alat_lab SET nama_alat='$nama', merk='$merk', status='$status' WHERE id='$id'");
     
     if ($update) {
-        // Kembali ke dashboard jika berhasil
+        
         header("location:index.php");
     }
 }
