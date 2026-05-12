@@ -65,9 +65,6 @@ if (isset($_POST['simpan'])) {
                             <option value="Baik">BAIK</option>
                             <option value="Rusak">RUSAK</option>
                         </select>
-                        <svg class="select-icon-sage" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7"></path>
-                        </svg>
                     </div>
                 </div>
 
