@@ -2,11 +2,9 @@
 include 'config/koneksi.php';
 session_start();
 
-
 if ($_SESSION['status'] != "login") {
     header("location:login.php");
 }
-
 
 $id = $_GET['id'];
 $query = mysqli_query($koneksi, "SELECT * FROM alat_lab WHERE id='$id'");
@@ -20,7 +18,7 @@ if (isset($_POST['update'])) {
     $update = mysqli_query($koneksi, "UPDATE alat_lab SET nama_alat='$nama', merk='$merk', status='$status' WHERE id='$id'");
     
     if ($update) {
-        header("location:index.php?pesan=berhasil_update");
+        header("location:index.php");
     }
 }
 ?>
@@ -72,9 +70,9 @@ if (isset($_POST['update'])) {
                     </div>
                 </div>
 
-                <div style="margin-top: 20px;">
+                <div style="margin-top: 25px;">
                     <button type="submit" name="update" class="btn-simpan-custom">Update Data</button>
-                    <a href="index.php" style="margin-left:10px; color:#777; text-decoration:none;">Batal</a>
+                    <a href="index.php" style="margin-left: 15px; color: #96A78D; text-decoration: none; font-weight: 600;">Batal</a>
                 </div>
             </form>
         </div>
