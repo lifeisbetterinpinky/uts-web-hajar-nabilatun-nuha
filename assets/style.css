@@ -1,123 +1,21 @@
-/*LOGIN*/
-
-.login-body {
-    background: linear-gradient(135deg, #F0F0F0 0%, #D9E9CF 100%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    font-family: 'Poppins', sans-serif; 
-}
-
-.login-card {
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(10px); /* Efek kaca */
-    padding: 50px 40px;
-    border-radius: 40px; 
-    box-shadow: 0 20px 40px rgba(150, 167, 141, 0.2);
-    width: 100%;
-    max-width: 450px;
-    text-align: center;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-.login-card h1 {
-    color: #96A78D;
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 40px;
-    letter-spacing: -1px;
-}
-
-.form-group {
-    text-align: left;
-    margin-bottom: 25px;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 10px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: #444;
-    margin-left: 5px;
-}
-
-.form-group input {
-    width: 100%;
-    padding: 15px 20px;
-    background: rgba(255, 255, 255, 0.9);
-    border: 1.5px solid #D9E9CF;
-    border-radius: 15px; 
-    box-sizing: border-box;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-}
-
-.form-group input:focus {
-    outline: none;
-    border-color: #96A78D;
-    box-shadow: 0 5px 15px rgba(150, 167, 141, 0.1);
-}
-
-.btn-masuk {
-    width: 100%;
-    padding: 16px;
-    background-color: #96A78D;
-    color: white;
-    border: none;
-    border-radius: 15px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: transform 0.2s, background 0.3s;
-    margin-top: 15px;
-    box-shadow: 0 10px 20px rgba(150, 167, 141, 0.3);
-}
-
-.btn-masuk:hover {
-    background-color: #7d8d74;
-    transform: translateY(-2px);
-}
-
-.login-footer {
-    margin-top: 30px;
-    font-size: 0.85rem;
-    color: #777;
-}
-
-.login-footer a {
-    color: #96A78D;
-    text-decoration: none;
-    font-weight: 700;
-}
-
-.small-link {
-    display: block;
-    margin-top: 15px;
-    font-size: 0.8rem;
-    color: #999;
-    text-decoration: none;
-}
-
-/*DASHBOARD*/
-
+/* --- VARIABLE & RESET --- */
 :root {
     --primary: #96A78D;    
     --secondary: #B6CEB4;  
     --light: #D9E9CF;      
     --bg-body: #F0F0F0;   
     --white: #ffffff;
+    --text-dark: #444;
 }
 
 body {
-    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-family: 'Poppins', 'Segoe UI', sans-serif;
     background-color: var(--bg-body);
     margin: 0;
     padding: 0;
 }
 
+/* --- NAVBAR --- */
 .navbar {
     background-color: var(--primary);
     color: var(--white);
@@ -138,64 +36,12 @@ body {
     transition: 0.3s;
 }
 
-.menu a:hover { color: var(--light); }
-
-.container {
+/* --- CONTAINER & LAYOUT --- */
+.container, .content-area {
     width: 90%;
     max-width: 1100px;
     margin: 30px auto;
-}
-
-h3 { color: var(--primary); border-left: 5px solid var(--primary); padding-left: 10px; }
-
-.styled-table {
-    width: 100%;
-    border-collapse: collapse;
-    background: var(--white);
-    border-radius: 8px;
-    overflow: hidden; 
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-}
-
-.styled-table thead tr {
-    background-color: var(--secondary);
-    color: #444;
-    text-align: left;
-}
-
-.styled-table th, .styled-table td { padding: 15px 20px; }
-
-.styled-table tbody tr { border-bottom: 1px solid #eee; transition: 0.2s; }
-
-.styled-table tbody tr:hover { background-color: var(--light); }
-
-.btn-tambah {
-    background-color: var(--primary);
-    color: white;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    display: inline-block;
-    margin-bottom: 20px;
-}
-
-.btn-edit { color: #2980b9; text-decoration: none; font-weight: bold; margin-right: 10px; }
-.btn-hapus { color: #c0392b; text-decoration: none; font-weight: bold; }
-
-.badge {
-    padding: 5px 10px;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    font-weight: bold;
-}
-.baik { background-color: #d4edda; color: #155724; }
-.rusak { background-color: #f8d7da; color: #721c24; }
-.maintenance { background-color: #fff3cd; color: #856404; }
-
-/* STYLE INPUT DAN EDIT*/
-
-.content-area {
-    padding: 40px 10%;
+    padding: 20px;
 }
 
 .page-title {
@@ -211,11 +57,26 @@ h3 { color: var(--primary); border-left: 5px solid var(--primary); padding-left:
     margin-right: 15px;
 }
 
+h3 { color: var(--primary); border-left: 5px solid var(--primary); padding-left: 10px; }
+
+/* --- FORM STYLING (LONJONG SAGE) --- */
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #666;
+}
+
 .form-input-text {
     width: 100%;
-    padding: 15px 25px;
+    padding: 12px 25px;
     border: 1.5px solid var(--light);
-    border-radius: 30px; /* Membuat lonjong sempurna */
+    border-radius: 30px; /* Lonjong */
     font-size: 1rem;
     box-sizing: border-box;
     outline: none;
@@ -224,7 +85,6 @@ h3 { color: var(--primary); border-left: 5px solid var(--primary); padding-left:
 
 .form-input-text:focus {
     border-color: var(--primary);
-    box-shadow: 0 0 8px rgba(150, 167, 141, 0.2);
 }
 
 .select-wrapper {
@@ -235,12 +95,12 @@ h3 { color: var(--primary); border-left: 5px solid var(--primary); padding-left:
 .custom-select {
     width: 100%;
     padding: 12px 20px;
-    border-radius: 30px; /* Dropdown lonjong */
+    border-radius: 30px; /* Lonjong */
     background-color: var(--secondary);
     border: none;
     font-weight: bold;
-    color: #444;
-    appearance: none; /* Hilangkan panah asli browser */
+    color: var(--text-dark);
+    appearance: none;
     cursor: pointer;
 }
 
@@ -249,24 +109,48 @@ h3 { color: var(--primary); border-left: 5px solid var(--primary); padding-left:
     right: 15px;
     top: 50%;
     transform: translateY(-50%);
-    width: 15px;
+    width: 12px;
     pointer-events: none;
 }
 
+/* --- BUTTONS --- */
 .btn-simpan-custom {
     background-color: var(--primary);
     color: white;
-    padding: 12px 60px;
+    padding: 12px 50px;
     border: none;
-    border-radius: 30px; /* Tombol lonjong */
+    border-radius: 30px; /* Lonjong */
     font-weight: bold;
-    font-size: 1rem;
     cursor: pointer;
     transition: 0.3s;
-    box-shadow: 0 5px 15px rgba(150, 167, 141, 0.3);
 }
 
-.btn-simpan-custom:hover {
-    background-color: #7d8d74;
-    transform: translateY(-2px);
+.btn-simpan-custom:hover { background-color: #7d8d74; }
+
+.btn-tambah {
+    background-color: var(--primary);
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    margin-bottom: 20px;
 }
+
+/* --- TABLE DASHBOARD --- */
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--white);
+    border-radius: 8px;
+    overflow: hidden; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.styled-table thead tr { background-color: var(--secondary); color: var(--text-dark); }
+.styled-table th, .styled-table td { padding: 15px 20px; }
+.styled-table tbody tr { border-bottom: 1px solid #eee; }
+
+.badge { padding: 5px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: bold; }
+.baik { background-color: #d4edda; color: #155724; }
+.rusak { background-color: #f8d7da; color: #721c24; }
