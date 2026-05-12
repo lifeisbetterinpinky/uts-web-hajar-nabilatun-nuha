@@ -9,7 +9,7 @@
 </head>
 <body>
     <nav class="navbar">
-        <h2>Sistem Monitoring Lab</h2>
+        <h2>MONITORING ALAT LABORATORIUM</h2>
         <div class="menu">
             <a href="index.php">Dashboard</a>
             <a href="tambah.php" class="btn-tambah">Tambah Alat Baru</a>
@@ -32,7 +32,7 @@
             </thead>
             <tbody>
                 <?php
-                // Logika PHP untuk mengambil data (Read)
+    
                 $no = 1;
                 $query = mysqli_query($koneksi, "SELECT * FROM alat_lab");
                 while($data = mysqli_fetch_array($query)){
