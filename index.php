@@ -1,3 +1,13 @@
+<?php 
+session_start();
+
+// Jika status session bukan login, arahkan ke halaman login
+if ($_SESSION['status'] != "login") {
+    header("location:login.php");
+    exit(); // Menghentikan loading halaman index jika belum login
+}
+?>
+
 <?php include 'config/koneksi.php'; ?>
 <!DOCTYPE html>
 <html lang="id">
