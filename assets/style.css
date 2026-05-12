@@ -48,6 +48,33 @@ body {
     cursor: pointer;
 }
 
+.form-group {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #444;
+}
+
+.login-input {
+    width: 100%;
+    padding: 15px 25px;
+    border-radius: 30px; /* Membuat input lonjong sage */
+    border: 1.5px solid var(--light);
+    box-sizing: border-box;
+    outline: none;
+    transition: 0.3s;
+}
+
+.login-input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 8px rgba(150, 167, 141, 0.3);
+}
+
 /*BAGIAN NAVBAR & LAYOUT (Berlaku di Index, Tambah, Edit)*/
 .navbar {
     background-color: var(--primary);
