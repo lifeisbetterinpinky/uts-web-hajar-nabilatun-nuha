@@ -1,9 +1,11 @@
-/* --- VARIABLE & RESET --- */
+/* ============================================================
+   1. GLOBAL & VARIABLES (Berlaku untuk semua halaman)
+   ============================================================ */
 :root {
     --primary: #96A78D;    
     --secondary: #B6CEB4;  
     --light: #D9E9CF;      
-    --bg-body: #F0F0F0;   
+    --bg-body: #F0F0F0;    
     --white: #ffffff;
     --text-dark: #444;
 }
@@ -15,7 +17,38 @@ body {
     padding: 0;
 }
 
-/* --- NAVBAR --- */
+/* BAGIAN LOGIN */
+.login-body {
+    background: linear-gradient(135deg, #F0F0F0 0%, #D9E9CF 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-card {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 50px 40px;
+    border-radius: 40px; 
+    box-shadow: 0 20px 40px rgba(150, 167, 141, 0.2);
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+}
+
+.btn-masuk {
+    width: 100%;
+    padding: 16px;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 15px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/*BAGIAN NAVBAR & LAYOUT (Berlaku di Index, Tambah, Edit)*/
 .navbar {
     background-color: var(--primary);
     color: var(--white);
@@ -23,7 +56,6 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .navbar h2 { margin: 0; font-size: 1.5rem; }
@@ -33,10 +65,8 @@ body {
     text-decoration: none;
     margin-left: 20px;
     font-weight: 500;
-    transition: 0.3s;
 }
 
-/* --- CONTAINER & LAYOUT --- */
 .container, .content-area {
     width: 90%;
     max-width: 1100px;
@@ -44,54 +74,38 @@ body {
     padding: 20px;
 }
 
-.page-title {
-    display: flex;
-    align-items: center;
-    margin-bottom: 30px;
-}
-
-.title-bar {
-    width: 5px;
-    height: 30px;
-    background-color: var(--primary);
-    margin-right: 15px;
-}
-
+/*BAGIAN DASHBOARD / TABEL (Halaman index.php)*/
 h3 { color: var(--primary); border-left: 5px solid var(--primary); padding-left: 10px; }
 
-/* --- FORM STYLING (LONJONG SAGE) --- */
-.form-group {
-    margin-bottom: 20px;
-    text-align: left;
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--white);
+    border-radius: 8px;
+    overflow: hidden; 
 }
 
-.form-group label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 600;
-    color: #666;
-}
+.styled-table thead tr { background-color: var(--secondary); color: var(--text-dark); }
+.styled-table th, .styled-table td { padding: 15px 20px; }
+
+.badge { padding: 5px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: bold; }
+.baik { background-color: #d4edda; color: #155724; }
+.rusak { background-color: #f8d7da; color: #721c24; }
+
+/*BAGIAN TAMBAH & EDIT ALAT (tambah.php & edit.php)*/
+.page-title { display: flex; align-items: center; margin-bottom: 30px; }
+.title-bar { width: 5px; height: 30px; background-color: var(--primary); margin-right: 15px; }
 
 .form-input-text {
     width: 100%;
     padding: 12px 25px;
     border: 1.5px solid var(--light);
     border-radius: 30px; /* Lonjong */
-    font-size: 1rem;
-    box-sizing: border-box;
     outline: none;
     transition: 0.3s;
 }
 
-.form-input-text:focus {
-    border-color: var(--primary);
-}
-
-.select-wrapper {
-    position: relative;
-    width: 200px;
-}
-
+.select-wrapper { position: relative; width: 200px; }
 .custom-select {
     width: 100%;
     padding: 12px 20px;
@@ -113,44 +127,14 @@ h3 { color: var(--primary); border-left: 5px solid var(--primary); padding-left:
     pointer-events: none;
 }
 
-/* --- BUTTONS --- */
 .btn-simpan-custom {
     background-color: var(--primary);
     color: white;
-    padding: 12px 50px;
+    padding: 12px 60px;
     border: none;
     border-radius: 30px; /* Lonjong */
     font-weight: bold;
     cursor: pointer;
-    transition: 0.3s;
 }
 
 .btn-simpan-custom:hover { background-color: #7d8d74; }
-
-.btn-tambah {
-    background-color: var(--primary);
-    color: white;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    display: inline-block;
-    margin-bottom: 20px;
-}
-
-/* --- TABLE DASHBOARD --- */
-.styled-table {
-    width: 100%;
-    border-collapse: collapse;
-    background: var(--white);
-    border-radius: 8px;
-    overflow: hidden; 
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-}
-
-.styled-table thead tr { background-color: var(--secondary); color: var(--text-dark); }
-.styled-table th, .styled-table td { padding: 15px 20px; }
-.styled-table tbody tr { border-bottom: 1px solid #eee; }
-
-.badge { padding: 5px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: bold; }
-.baik { background-color: #d4edda; color: #155724; }
-.rusak { background-color: #f8d7da; color: #721c24; }
