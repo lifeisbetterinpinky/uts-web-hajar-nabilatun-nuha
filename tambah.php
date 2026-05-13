@@ -10,7 +10,6 @@ if (isset($_POST['simpan'])) {
     $nama   = $_POST['nama_alat'];
     $merk   = $_POST['merk'];
     $status = $_POST['status'];
-
     
     $input = mysqli_query($koneksi, "INSERT INTO alat_lab (nama_alat, merk, status) VALUES ('$nama', '$merk', '$status')");
     
