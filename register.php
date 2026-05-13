@@ -5,11 +5,11 @@ if (isset($_POST['register'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    // Simpan ke tabel users
+    
     $input = mysqli_query($koneksi, "INSERT INTO users (username, password) VALUES ('$username', '$password')");
     
     if ($input) {
-        // Jika berhasil, arahkan ke login dengan pesan sukses
+        
         header("location:login.php?pesan=registrasi_berhasil");
     } else {
         echo "Gagal Registrasi: " . mysqli_error($koneksi);
