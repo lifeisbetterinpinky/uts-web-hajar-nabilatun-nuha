@@ -1,6 +1,4 @@
-/* ============================================================
-   1. GLOBAL & VARIABLES (Berlaku untuk semua halaman)
-   ============================================================ */
+/*GLOBAL & VARIABLES (Berlaku untuk semua halaman)*/
 :root {
     --primary: #96A78D;    
     --secondary: #B6CEB4;  
@@ -73,7 +71,7 @@ body {
     margin-top: 10px !important;
 }
 
-/*BAGIAN NAVBAR & LAYOUT (Berlaku di Index, Tambah, Edit)*/
+/*BAGIAN NAVBAR & LAYOUT*/
 .navbar {
     background-color: var(--primary);
     color: var(--white);
@@ -99,7 +97,7 @@ body {
     padding: 20px;
 }
 
-/*BAGIAN DASHBOARD / TABEL (Halaman index.php)*/
+/*BAGIAN DASHBOARD / TABEL*/
 h3 { color: var(--primary); border-left: 5px solid var(--primary); padding-left: 10px; }
 
 .styled-table {

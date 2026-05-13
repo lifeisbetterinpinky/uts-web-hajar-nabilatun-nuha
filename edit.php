@@ -10,7 +10,6 @@ if (isset($_POST['update'])) {
     $nama   = $_POST['nama_alat'];
     $merk   = $_POST['merk'];
     $status = $_POST['status'];
-
     $update = mysqli_query($koneksi, "UPDATE alat_lab SET nama_alat='$nama', merk='$merk', status='$status' WHERE id='$id'");
     
     if ($update) {
