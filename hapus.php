@@ -1,11 +1,18 @@
-<?php
-
+<?php 
 include 'config/koneksi.php';
+session_start();
+
 $id = $_GET['id'];
-$result = mysqli_query($koneksi, "DELETE FROM alat_lab WHERE id=$id");
+
+$result = mysqli_query($koneksi, "DELETE FROM alat_lab WHERE id='$id'");
+
 if ($result) {
-    header("Location:index.php?pesan=hapus_berhasil");
+    $_SESSION['notif'] = "Alat berhasil dihapus!";
+    $_SESSION['notif_type'] = "success";
+    header("Location:index.php");
 } else {
-    header("Location:index.php?pesan=hapus_gagal");
+    $_SESSION['notif'] = "Gagal menghapus data!";
+    $_SESSION['notif_type'] = "error";
+    header("Location:index.php");
 }
 ?>

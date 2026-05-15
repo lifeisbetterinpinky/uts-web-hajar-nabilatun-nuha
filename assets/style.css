@@ -262,6 +262,7 @@ h3 { color: var(--primary); border-left: 5px solid var(--primary); padding-left:
     justify-content: center;
 }
 
+/*BAGIAN MENU NAVIGASI*/
 .menu a i {
     margin-right: 8px;
 }
@@ -273,4 +274,33 @@ h3 { color: var(--primary); border-left: 5px solid var(--primary); padding-left:
 
 .menu a[href="logout.php"] i {
     color: #e74c3c;
+}
+
+/*BAGIAN NOTIFIKASI*/
+.notification-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    min-width: 300px;
+}
+
+.alert-toast {
+    background: white;
+    padding: 15px 20px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-left: 6px solid #96A78D; /* Warna Sage Green */
+    animation: slideIn 0.5s ease forwards;
+    margin-bottom: 10px;
+}
+
+.alert-toast.error { border-left-color: #e74c3c; } /* Warna Merah jika gagal */
+
+@keyframes slideIn {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
 }
