@@ -14,7 +14,7 @@ if ($_SESSION['status'] != "login") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Monitoring Alat Lab - UTS</title>
-    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="assets/style.css?V=1.1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
@@ -55,7 +55,6 @@ if ($_SESSION['status'] != "login") {
                         <span class="badge <?php echo strtolower($data['status']); ?>">
                             <?php echo $data['status']; ?>
                         </span>
-                    </td>
                     <td style="text-align: center;">
                         <div class="action-container">
                             <a href="edit.php?id=<?php echo $data['id']; ?>" class="btn-aksi btn-edit">
@@ -64,11 +63,12 @@ if ($_SESSION['status'] != "login") {
                             <a href="hapus.php?id=<?php echo $data['id']; ?>" class="btn-aksi btn-hapus" onclick="return confirm('Yakin ingin menghapus data ini?')">
                                 <i class="fas fa-trash"></i> Hapus
                             </a>
-                        </div> </td>
-                </tr>
-                <?php } ?>
-            </tbody>
-        </table>
-    </main>
-</body>
-</html>
+                         </div> 
+                     </td>
+                 </tr>
+                 <?php } ?> 
+             </tbody>
+         </table>
+     </main>
+ </body>
+ </html>

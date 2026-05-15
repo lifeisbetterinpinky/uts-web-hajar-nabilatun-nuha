@@ -228,34 +228,36 @@ h3 { color: var(--primary); border-left: 5px solid var(--primary); padding-left:
 }
 
 /*BAGIAN TOMBOL AKSI*/
+.action-container {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
 .btn-aksi {
-    padding: 8px 16px !important; /* Tambahkan ini agar jadi kotak */
-    border-radius: 8px;
+    padding: 8px 16px !important;    /* WAJIB di dalam kurung */
+    border-radius: 8px !important;   /* WAJIB di dalam kurung */
     text-decoration: none !important;
     display: inline-flex;
     align-items: center;
     gap: 8px;
     color: white !important;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: 0.3s;
 }
 
 .btn-edit {
-    background-color: #96A78D;
-    color: white !important;
-}
-
-.btn-edit:hover {
-    background-color: #7d8c75;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(150, 167, 141, 0.3);
+    background-color: #878fda !important;
 }
 
 .btn-hapus {
-    background-color: #e74c3c;
-    color: white !important;
+    background-color: #e74c3c !important;
 }
 
-.btn-hapus:hover {
-    background-color: #c0392b;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(231, 76, 60, 0.3);
+.action-container {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
 }
