@@ -14,8 +14,8 @@ if ($_SESSION['status'] != "login") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Monitoring Alat Lab - UTS</title>
-    <link rel="stylesheet" href="assets/style.css?V=1.1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/style.css?V=1.1">
 </head>
 <body>
     <nav class="navbar">
