@@ -1,11 +1,11 @@
 <?php 
 include 'config/koneksi.php';
-$user_target = $_GET['user']; // Mengambil username dari URL
+$user_target = $_GET['user']; 
 
 if (isset($_POST['reset'])) {
     $password_baru = $_POST['password_baru'];
     
-    // Perintah SQL untuk mengganti password
+   
     $update = mysqli_query($koneksi, "UPDATE users SET password='$password_baru' WHERE username='$user_target'");
     
     if ($update) {
