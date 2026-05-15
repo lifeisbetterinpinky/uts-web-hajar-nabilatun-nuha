@@ -31,30 +31,36 @@ if ($_SESSION['status'] != "login") {
         <h3>Daftar Inventaris Alat</h3>
         
         <table class="styled-table">
-            <thead>
-                <tr>
-                    <th>No</th>
-                    <th>Nama Alat</th>
-                    <th>Merk</th>
-                    <th>Status</th>
-                    <th>Aksi</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-    
-                $no = 1;
-                $query = mysqli_query($koneksi, "SELECT * FROM alat_lab");
-                while($data = mysqli_fetch_array($query)){
-                ?>
-                <tr>
-                    <td><?php echo $no++; ?></td>
-                    <td><?php echo $data['nama_alat']; ?></td>
-                    <td><?php echo $data['merk']; ?></td>
-                    <td>
-                        <span class="badge <?php echo strtolower($data['status']); ?>">
-                            <?php echo $data['status']; ?>
-                        </span>
+    <thead>
+        <tr>
+            <th>No</th>
+            <th>Nama Alat</th>
+            <th>Merk</th>
+            <th style="text-align: center;">Total</th>
+            <th style="text-align: center;">Kondisi Baik</th>
+            <th style="text-align: center;">Kondisi Rusak</th>
+            <th style="text-align: center;">Aksi</th>
+        </tr>
+    </thead>
+<tbody>
+        <?php
+        $no = 1;
+        $query = mysqli_query($koneksi, "SELECT * FROM alat_lab");
+        while($data = mysqli_fetch_array($query)){
+            // Rumus hitung total otomatis
+            $total = $data['jumlah_baik'] + $data['jumlah_rusak']; 
+        ?>
+        <tr>
+            <td><?php echo $no++; ?></td>
+            <td><?php echo $data['nama_alat']; ?></td>
+            <td><?php echo $data['merk']; ?></td>
+            <td style="text-align: center;"><strong><?php echo $total; ?></strong></td>
+            <td style="text-align: center;">
+                <span class="badge baik"><?php echo $data['jumlah_baik']; ?> Unit</span>
+            </td>
+            <td style="text-align: center;">
+                <span class="badge rusak"><?php echo $data['jumlah_rusak']; ?> Unit</span>
+            </td>
                     <td style="text-align: center;">
                         <div class="action-container">
                             <a href="edit.php?id=<?php echo $data['id']; ?>" class="btn-aksi btn-edit">

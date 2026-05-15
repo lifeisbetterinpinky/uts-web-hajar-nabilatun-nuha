@@ -1,75 +1,50 @@
 <?php 
 include 'config/koneksi.php';
-session_start();
-
 $id = $_GET['id'];
 $query = mysqli_query($koneksi, "SELECT * FROM alat_lab WHERE id='$id'");
-$d = mysqli_fetch_array($query);
-
-if (isset($_POST['update'])) {
-    $nama   = $_POST['nama_alat'];
-    $merk   = $_POST['merk'];
-    $status = $_POST['status'];
-    $update = mysqli_query($koneksi, "UPDATE alat_lab SET nama_alat='$nama', merk='$merk', status='$status' WHERE id='$id'");
-    
-    if ($update) {
-        header("location:index.php");
-    }
-}
+$data = mysqli_fetch_array($query);
 ?>
 
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Alat - MONITORING ALAT LABORATORIUM</title>
-    <link rel="stylesheet" href="assets/style.css?v=2">
+    <title>Edit Data Alat - Lab</title>
+    <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-    <nav class="navbar">
-        <h2>MONITORING ALAT LABORATORIUM</h2>
-        <div class="menu">
-            <a href="index.php">Dashboard</a>
-            <a href="tambah.php">Tambah Alat Baru</a>
-            <a href="logout.php">Logout</a>
-        </div>
-    </nav>
-
-    <main class="content-area">
+    <div class="container">
         <div class="page-title">
             <div class="title-bar"></div>
-            <h2>+ Edit Data Alat</h2>
+            <h3>Edit Inventaris Alat</h3>
         </div>
-        
-        <div class="form-container">
-            <form action="" method="POST">
-                <div class="form-group">
-                    <label>Nama Alat</label>
-                    <input type="text" name="nama_alat" class="form-input-text" value="<?php echo $d['nama_alat']; ?>" required>
-                </div>
 
-                <div class="form-group">
-                    <label>Merk</label>
-                    <input type="text" name="merk" class="form-input-text" value="<?php echo $d['merk']; ?>" required>
-                </div>
+        <form action="edit_aksi.php" method="post" class="login-card" style="max-width: 600px; margin: auto;">
+            <input type="hidden" name="id" value="<?php echo $data['id']; ?>">
+            
+            <div class="form-group">
+                <label>Nama Alat</label>
+                <input type="text" name="nama_alat" class="form-input-text" value="<?php echo $data['nama_alat']; ?>" required>
+            </div>
 
-                <div class="form-group">
-                    <label>Status</label>
-                    <div class="select-wrapper">
-                        <select name="status" class="custom-select" required>
-                            <option value="Baik" <?php if($d['status'] == 'Baik') echo 'selected'; ?>>BAIK</option>
-                            <option value="Rusak" <?php if($d['status'] == 'Rusak') echo 'selected'; ?>>RUSAK</option>
-                        </select>
-                    </div>
-                </div>
+            <div class="form-group">
+                <label>Merk/Brand</label>
+                <input type="text" name="merk" class="form-input-text" value="<?php echo $data['merk']; ?>" required>
+            </div>
 
-                <div style="margin-top: 30px;">
-                    <button type="submit" name="update" class="btn-simpan-custom">SIMPAN</button>
-                    <a href="index.php" style="margin-left: 15px; color: #96A78D; text-decoration: none; font-weight: 600;">BATAL</a>
+            <div style="display: flex; gap: 20px;">
+                <div class="form-group" style="flex: 1;">
+                    <label>Jumlah Baik</label>
+                    <input type="number" name="jumlah_baik" class="form-input-text" value="<?php echo $data['jumlah_baik']; ?>" required>
                 </div>
-            </form>
-        </div>
-    </main>
+                <div class="form-group" style="flex: 1;">
+                    <label>Jumlah Rusak</label>
+                    <input type="number" name="jumlah_rusak" class="form-input-text" value="<?php echo $data['jumlah_rusak']; ?>" required>
+                </div>
+            </div>
+
+            <button type="submit" class="btn-simpan-custom">Update Data</button>
+            <a href="index.php" style="display: block; margin-top: 15px; color: #666; text-decoration: none;">Batal</a>
+        </form>
+    </div>
 </body>
 </html>
