@@ -56,14 +56,15 @@ if ($_SESSION['status'] != "login") {
                             <?php echo $data['status']; ?>
                         </span>
                     </td>
-                    <td>
-                        <a href="edit.php?id=<?php echo $data['id']; ?>" class="btn-aksi btn-edit">
-                            <i class="fas fa-edit"></i> Edit
-                        </a>
-                        <a href="hapus.php?id=<?php echo $data['id']; ?>" class="btn-aksi btn-hapus" onclick="return confirm('Yakin ingin menghapus data ini?')">
-                            <i class="fas fa-trash"></i> Hapus
-                        </a>
-                    </td>
+                    <td style="text-align: center;">
+                        <div class="action-container">
+                            <a href="edit.php?id=<?php echo $data['id']; ?>" class="btn-aksi btn-edit">
+                                <i class="fas fa-edit"></i> Edit
+                            </a>
+                            <a href="hapus.php?id=<?php echo $data['id']; ?>" class="btn-aksi btn-hapus" onclick="return confirm('Yakin ingin menghapus data ini?')">
+                                <i class="fas fa-trash"></i> Hapus
+                            </a>
+                        </div> </td>
                 </tr>
                 <?php } ?>
             </tbody>

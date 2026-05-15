@@ -229,53 +229,13 @@ h3 { color: var(--primary); border-left: 5px solid var(--primary); padding-left:
 
 /*BAGIAN TOMBOL AKSI*/
 .btn-aksi {
-    padding: 5px 12px;
+    padding: 8px 16px !important; /* Tambahkan ini agar jadi kotak */
     border-radius: 8px;
-    text-decoration: none;
-    font-size: 0.85rem;
-    font-weight: 600;
-    display: inline-block;
-    transition: 0.3s;
-}
-
-.btn-edit {
-    background-color: #96A78D; /* Sage Green */
-    color: white !important;
-}
-
-.btn-edit:hover {
-    background-color: #7d8c75;
-}
-
-.btn-hapus {
-    background-color: #e74c3c; /* Merah kalem */
-    color: white !important;
-    margin-left: 5px;
-}
-
-.btn-hapus:hover {
-    background-color: #c0392b;
-}
-
-/* Container untuk tombol agar sejajar */
-.action-container {
-    display: flex;
-    gap: 8px; /* Jarak antar tombol */
-    justify-content: center;
-}
-
-/* Base style untuk semua tombol aksi */
-.btn-aksi {
-    padding: 8px 16px;
-    border-radius: 10px; /* Sudut membulat yang pas */
-    text-decoration: none;
-    font-size: 0.85rem;
-    font-weight: 600;
+    text-decoration: none !important;
     display: inline-flex;
     align-items: center;
-    gap: 6px; 
-    transition: all 0.3s ease;
-    border: none;
+    gap: 8px;
+    color: white !important;
 }
 
 .btn-edit {
