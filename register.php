@@ -43,6 +43,8 @@ if (isset($_POST['register'])) {
     <label style="display: block; margin-bottom: 5px; font-weight: 600;">Pertanyaan Keamanan</label>
     <select name="pertanyaan" class="login-input" style="width: 100%; padding: 10px; border-radius: 20px; border: 1px solid #ddd;" required>
         <option value="Siapa nama ibu kandungmu?">Siapa nama ibu kandungmu?</option>
+        <option value="Apa nama hewan peliharaanmu?">Apa nama hewan peliharaanmu?</option>
+        <option value="Apa nama sekolah SD kamu?">Apa nama sekolah SD kamu?</option>
     </select>
 </div>
 <div class="form-group" style="text-align: left; margin-bottom: 20px;">
