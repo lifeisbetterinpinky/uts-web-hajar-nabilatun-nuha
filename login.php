@@ -52,7 +52,7 @@ if (isset($_POST['login'])) {
         </form>
 
         <div class="login-footer" style="margin-top: 20px;">
-            <a href="#" class="link-kecil">lupa password?</a>
+            <a href="lupa_password.php" class="link-kecil">lupa password?</a>
             <p style="font-size: 0.9rem; margin-top: 10px;">Don't have an account? <a href="register.php" class="link-kecil">Register</a></p>
         </div>
     </div>
