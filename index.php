@@ -15,6 +15,7 @@ if ($_SESSION['status'] != "login") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Monitoring Alat Lab - UTS</title>
     <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <nav class="navbar">
@@ -56,8 +57,12 @@ if ($_SESSION['status'] != "login") {
                         </span>
                     </td>
                     <td>
-                        <a href="edit.php?id=<?php echo $data['id']; ?>" class="btn-aksi btn-edit">Edit</a>
-                        <a href="hapus.php?id=<?php echo $data['id']; ?>" class="btn-aksi btn-hapus" onclick="return confirm('Yakin ingin menghapus data ini?')">Hapus</a>
+                        <a href="edit.php?id=<?php echo $data['id']; ?>" class="btn-aksi btn-edit">
+                            <i class="fas fa-edit"></i> Edit
+                        </a>
+                        <a href="hapus.php?id=<?php echo $data['id']; ?>" class="btn-aksi btn-hapus" onclick="return confirm('Yakin ingin menghapus data ini?')">
+                            <i class="fas fa-trash"></i> Hapus
+                        </a>
                     </td>
                 </tr>
                 <?php } ?>

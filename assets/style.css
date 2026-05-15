@@ -256,3 +256,46 @@ h3 { color: var(--primary); border-left: 5px solid var(--primary); padding-left:
 .btn-hapus:hover {
     background-color: #c0392b;
 }
+
+/* Container untuk tombol agar sejajar */
+.action-container {
+    display: flex;
+    gap: 8px; /* Jarak antar tombol */
+    justify-content: center;
+}
+
+/* Base style untuk semua tombol aksi */
+.btn-aksi {
+    padding: 8px 16px;
+    border-radius: 10px; /* Sudut membulat yang pas */
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px; 
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.btn-edit {
+    background-color: #96A78D;
+    color: white !important;
+}
+
+.btn-edit:hover {
+    background-color: #7d8c75;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(150, 167, 141, 0.3);
+}
+
+.btn-hapus {
+    background-color: #e74c3c;
+    color: white !important;
+}
+
+.btn-hapus:hover {
+    background-color: #c0392b;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(231, 76, 60, 0.3);
+}
