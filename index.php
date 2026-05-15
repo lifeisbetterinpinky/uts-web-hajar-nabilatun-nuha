@@ -56,8 +56,8 @@ if ($_SESSION['status'] != "login") {
                         </span>
                     </td>
                     <td>
-                        <a href="edit.php?id=<?php echo $data['id']; ?>" class="btn-edit">Edit</a>
-                        <a href="hapus.php?id=<?php echo $data['id']; ?>" class="btn-hapus" onclick="return confirm('Yakin hapus?')">Hapus</a>
+                        <a href="edit.php?id=<?php echo $data['id']; ?>" class="btn-aksi btn-edit">Edit</a>
+                        <a href="hapus.php?id=<?php echo $data['id']; ?>" class="btn-aksi btn-hapus" onclick="return confirm('Yakin ingin menghapus data ini?')">Hapus</a>
                     </td>
                 </tr>
                 <?php } ?>
