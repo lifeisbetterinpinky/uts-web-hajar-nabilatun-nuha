@@ -12,14 +12,21 @@ $data = mysqli_fetch_array($query);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Alat - MONITORING ALAT LABORATORIUM</title>
     <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <nav class="navbar">
-        <h2>MONITORING ALAT LABORATORIUM</h2>
+        <h2><i class="fas fa-microscope"></i> MONITORING ALAT LABORATORIUM</h2>
         <div class="menu">
-            <a href="index.php">Dashboard</a>
-            <a href="tambah.php" class="btn-tambah">Tambah Alat Baru</a>
-            <a href="logout.php">Logout</a>
+            <a href="index.php">
+                <i class="fas fa-house"></i> Dashboard
+            </a>
+            <a href="tambah.php" class="btn-tambah">
+                <i class="fas fa-plus-circle"></i> Tambah Alat Baru
+            </a>
+            <a href="logout.php" onclick="return confirm('Yakin ingin logout?')">
+                <i class="fas fa-door-open"></i> Logout
+            </a>
         </div>
     </nav>
 

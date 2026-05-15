@@ -19,11 +19,17 @@ if ($_SESSION['status'] != "login") {
 </head>
 <body>
     <nav class="navbar">
-        <h2>MONITORING ALAT LABORATORIUM</h2>
+        <h2><i class="fas fa-microscope"></i> MONITORING ALAT LABORATORIUM</h2>
         <div class="menu">
-            <a href="index.php">Dashboard</a>
-            <a href="tambah.php" class="btn-tambah">Tambah Alat Baru</a>
-            <a href="logout.php">Logout</a>
+            <a href="index.php">
+                <i class="fas fa-house"></i> Dashboard
+            </a>
+            <a href="tambah.php" class="btn-tambah">
+                <i class="fas fa-plus-circle"></i> Tambah Alat Baru
+            </a>
+            <a href="logout.php" onclick="return confirm('Yakin ingin logout?')">
+                <i class="fas fa-door-open"></i> Logout
+            </a>
         </div>
     </nav>
 
