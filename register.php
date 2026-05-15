@@ -7,10 +7,11 @@ if (isset($_POST['register'])) {
     $pertanyaan = $_POST['pertanyaan']; 
     $jawaban    = $_POST['jawaban'];    
     
-    $input = mysqli_query($koneksi, "INSERT INTO users (username, password, pertanyaan, jawaban) VALUES ('$username', '$password', '$pertanyaan', '$jawaban')");
+    $sql = "INSERT INTO users (username, password, pertanyaan_keamanan, jawaban_keamanan) 
+        VALUES ('$username', '$password', '$pertanyaan', '$jawaban')";
+        $input = mysqli_query($koneksi, $sql);
     
     if ($input) {
-        
         header("location:login.php?pesan=registrasi_berhasil");
     } else {
         echo "Gagal Registrasi: " . mysqli_error($koneksi);
