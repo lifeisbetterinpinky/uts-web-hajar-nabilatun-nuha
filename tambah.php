@@ -45,6 +45,10 @@ if ($_SESSION['status'] != "login") {
                 </div>
 
                 <div style="display: flex; gap: 100px; margin-bottom: 20px;">
+                    <div class="form-group">
+                        <label class="form-label">Total Alat di Lab</label>
+                        <input type="number" name="jumlah_total" class="form-input-text" placeholder="Masukkan total stok manual" value="<?php echo isset($data['jumlah_total']) ? $data['jumlah_total'] : '0'; ?>" required>
+                    </div>
                     <div class="form-group" style="flex: ;">
                         <label class="form-label">Jumlah Kondisi Baik</label>
                         <input type="number" name="jumlah_baik" class="form-input-text" value="0" required>

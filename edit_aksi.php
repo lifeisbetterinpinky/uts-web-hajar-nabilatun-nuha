@@ -1,15 +1,17 @@
 <?php 
 include 'config/koneksi.php';
 
-$id = $_POST['id'];
-$nama = $_POST['nama_alat'];
-$merk = $_POST['merk'];
-$baik = $_POST['jumlah_baik'];
+$id    = $_POST['id'];
+$nama  = $_POST['nama_alat']; 
+$merk  = $_POST['merk'];      
+$total = $_POST['jumlah_total']; 
+$baik  = $_POST['jumlah_baik'];
 $rusak = $_POST['jumlah_rusak'];
 
 $query = "UPDATE alat_lab SET 
           nama_alat='$nama', 
           merk='$merk', 
+          jumlah_total='$total', 
           jumlah_baik='$baik', 
           jumlah_rusak='$rusak' 
           WHERE id='$id'";
