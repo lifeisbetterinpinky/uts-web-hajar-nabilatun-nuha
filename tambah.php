@@ -5,18 +5,6 @@ session_start();
 if ($_SESSION['status'] != "login") {
     header("location:login.php");
 }
-
-if (isset($_POST['simpan'])) {
-    $nama   = $_POST['nama_alat'];
-    $merk   = $_POST['merk'];
-    $status = $_POST['status'];
-    
-    $input = mysqli_query($koneksi, "INSERT INTO alat_lab (nama_alat, merk, status) VALUES ('$nama', '$merk', '$status')");
-    
-    if ($input) {
-        header("location:index.php?pesan=tambah_berhasil");
-    }
-}
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +13,7 @@ if (isset($_POST['simpan'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tambah Alat - MONITORING ALAT LABORATORIUM</title>
-    <link rel="stylesheet" href="assets/style.css?v=1">
+    <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
     <nav class="navbar">
@@ -44,31 +32,31 @@ if (isset($_POST['simpan'])) {
         </div>
 
         <div class="form-container">
-            <form action="" method="POST">
+            <form action="tambah_aksi.php" method="POST">
                 <div class="form-row">
                     <div class="form-group">
                         <label class="form-label">Nama Alat</label>
-                        <input type="text" name="nama_alat" class="form-input-text" placeholder="Masukkan nama alat..." required>
+                        <input type="text" name="nama_alat" class="form-input-text" placeholder="Ketik Nama Alat" required>
                     </div>
                     <div class="form-group">
                         <label class="form-label">Merk</label>
-                        <input type="text" name="merk" class="form-input-text" placeholder="Masukkan merk alat..." required>
+                        <input type="text" name="merk" class="form-input-text" placeholder="Ketik Merk Alat" required>
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label class="form-label">Status</label>
-                    <div class="select-wrapper">
-                        <select name="status" class="custom-select" required>
-                            <option value="" disabled selected>- Pilih Status -</option>
-                            <option value="Baik">BAIK</option>
-                            <option value="Rusak">RUSAK</option>
-                        </select>
+                <div style="display: flex; gap: 100px; margin-bottom: 20px;">
+                    <div class="form-group" style="flex: ;">
+                        <label class="form-label">Jumlah Kondisi Baik</label>
+                        <input type="number" name="jumlah_baik" class="form-input-text" value="0" required>
+                    </div>
+                    <div class="form-group" style="flex: ;">
+                        <label class="form-label">Jumlah Kondisi Rusak</label>
+                        <input type="number" name="jumlah_rusak" class="form-input-text" value="0" required>
                     </div>
                 </div>
 
                 <div style="margin-top: 30px;">
-                    <button type="submit" name="simpan" class="btn-simpan-custom">SIMPAN</button>
+                    <button type="submit" name="simpan" class="btn-simpan-custom">SIMPAN DATA</button>
                     <a href="index.php" style="margin-left: 15px; color: #96A78D; text-decoration: none; font-weight: 600;">BATAL</a>
                 </div>
             </form>
