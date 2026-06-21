@@ -13,3 +13,13 @@ CREATE TABLE alat_lab (
     merk VARCHAR(50),
     status ENUM('Baik', 'Rusak') DEFAULT 'Baik'
 );
+
+CREATE TABLE pengaduan_kerusakan (
+   id INT(11) NOT NULL AUTO_INCREMENT,
+   id_alat INT(11) NOT NULL,
+   id_user INT(11) NOT NULL,
+   deskripsi_kendala TEXT NOT NULL,
+   tgl_lapor DATE NOT NULL,
+   status ENUM('Belum Diperbaiki', 'Proses', 'Selesai') NOT NULL DEFAULT 'Belum Diperbaiki',
+   PRIMARY KEY (id )
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
