@@ -1,0 +1,13 @@
+{
+    "name": "acer/uts-web-hajarnabilatunnuha",
+    "authors": [
+        {
+            "name": "nabila",
+            "email": "nabillatun.nuha@gmail.com"
+        }
+    ],
+    "require": {
+        "phpoffice/phpspreadsheet": "^5.8",
+        "phpoffice/phpword": "^1.4"
+    }
+}

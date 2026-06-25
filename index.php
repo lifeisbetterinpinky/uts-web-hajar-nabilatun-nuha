@@ -26,7 +26,8 @@ $data_rusak = mysqli_fetch_assoc($query_rusak);
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <link rel="stylesheet" href="assets/style.css?v=1.5">
-    
+    <link rel="stylesheet" href="assets/style.css?v=<?php echo time(); ?>">
+
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
@@ -56,12 +57,20 @@ $data_rusak = mysqli_fetch_assoc($query_rusak);
             <a href="index.php"><i class="fas fa-house"></i> Dashboard</a>
             <a href="index.php?action=tambah#popupForm" class="btn-tambah"><i class="fas fa-plus-circle"></i> Tambah Alat Baru</a>
             <a href="logout.php" onclick="return confirm('Yakin ingin logout?')"><i class="fas fa-door-open"></i> Logout</a>
+            
         </div>
     </nav>
 
     <main class="container">
         <h3>Daftar Inventaris Alat</h3>
-        
+        <div class="export-container">
+            <a href="proses_ekspor_word.php" class="btn-export btn-word">
+                <i class="fas fa-file-word"></i> Ekspor ke Word
+            </a>
+            <a href="proses_ekspor_excel.php" class="btn-export btn-excel">
+                <i class="fas fa-file-excel"></i> Ekspor ke Excel
+            </a>
+        </div>
         <table class="styled-table">
             <thead>
                 <tr>
