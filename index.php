@@ -1,6 +1,12 @@
 <?php 
 session_start();
 
+// Mencegah caching halaman oleh browser agar data terbaru selalu dimuat secara real-time
+header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+header("Cache-Control: post-check=0, pre-check=0", false);
+header("Pragma: no-cache");
+header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
+
 if ($_SESSION['status'] != "login") {
     header("location:login.php");
     exit();
@@ -64,11 +70,14 @@ $data_rusak = mysqli_fetch_assoc($query_rusak);
     <main class="container">
         <h3>Daftar Inventaris Alat</h3>
         <div class="export-container">
-            <a href="proses_ekspor_word.php" class="btn-export btn-word">
+            <a href="ekspor_word.php" class="btn-export btn-word">
                 <i class="fas fa-file-word"></i> Ekspor ke Word
             </a>
-            <a href="proses_ekspor_excel.php" class="btn-export btn-excel">
+            <a href="ekspor_excel.php" class="btn-export btn-excel">
                 <i class="fas fa-file-excel"></i> Ekspor ke Excel
+            </a>
+            <a href="#popupImportExcel" class="btn-export btn-excel" style="background-color:#D1E7DD; border:1px solid #A3CFBB;">
+                <i class="fas fa-file-import"></i> Import Excel
             </a>
         </div>
         <table class="styled-table">
@@ -135,7 +144,31 @@ $data_rusak = mysqli_fetch_assoc($query_rusak);
         </div>
     </main>
 
+    <div id="popupImportExcel" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-file-import"></i> Import Excel</h3>
+                <a href="index.php" class="close-btn">&times;</a>
+            </div>
+            <form action="import_excel_aksi.php" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label class="form-label">Pilih File Excel</label>
+                    <input type="file" name="excel_file" class="form-input-text" accept=".xlsx,.xls" required>
+                    <small style="display:block; margin-top:8px; color:#6b7280;">
+                        Format kolom (header baris pertama) wajib:
+                        <b>Nama Alat</b>, <b>Merk</b>, <b>Jumlah Kondisi Baik</b>, <b>Jumlah Kondisi Rusak</b>
+                    </small>
+                </div>
+                <div style="margin-top: 20px; display:flex; gap:12px;">
+                    <button type="submit" class="btn-simpan-custom">IMPORT</button>
+                    <a href="index.php" class="btn-aksi btn-hapus" style="text-decoration: none; display:inline-flex; align-items:center;">BATAL</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <div id="popupForm" class="modal-overlay">
+
         <div class="modal-content">
             <div class="modal-header">
                 <h3><i class="fas fa-plus-circle"></i> Tambah Alat Baru</h3>
