@@ -35,11 +35,10 @@ if ($_SESSION['status'] != "login") {
         <div class="form-container">
             <form action="import_excel_aksi.php" method="POST" enctype="multipart/form-data">
                 <div class="form-group">
-                    <label class="form-label">Pilih File Excel</label>
+                    <label class="form-label">Pilih File Excel (.xlsx / .xls)</label>
                     <input type="file" name="excel_file" class="form-input-text" accept=".xlsx,.xls" required>
                     <small style="display:block; margin-top:8px; color:#6b7280;">
-                        Format kolom (header baris pertama) wajib:
-                        <b>Nama Alat</b>, <b>Merk</b>, <b>Jumlah Kondisi Baik</b>, <b>Jumlah Kondisi Rusak</b>
+                        Pastikan menggunakan file <b>.xls</b> hasil dari menu Ekspor Web yang sudah kamu tambahkan datanya secara manual.
                     </small>
                 </div>
 
@@ -53,7 +52,7 @@ if ($_SESSION['status'] != "login") {
         <?php if(isset($_SESSION['notif'])): ?>
             <div style="margin-top:18px; padding:12px; border-radius:8px; background:#fff; border:1px solid #e5e7eb;">
                 <b style="color: <?php echo ($_SESSION['notif_type'] ?? 'success') === 'success' ? '#16a34a' : '#dc2626'; ?>">
-                    <?php echo $_SESSION['notif_type'] === 'success' ? 'Berhasil!' : 'Gagal!'; ?>
+                    <?php echo ($_SESSION['notif_type'] ?? 'success') === 'success' ? 'Berhasil!' : 'Gagal!'; ?>
                 </b>
                 <div style="margin-top:6px;">
                     <?php echo htmlspecialchars($_SESSION['notif']); ?>
@@ -64,4 +63,3 @@ if ($_SESSION['status'] != "login") {
     </main>
 </body>
 </html>
-
