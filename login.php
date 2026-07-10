@@ -1,60 +1,85 @@
 <?php 
-include 'config/koneksi.php';
-session_start(); // WAJIB ADA di baris paling atas agar session jalan
-
-if (isset($_POST['login'])) {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-
-    // Menggunakan tabel 'users' sesuai database kamu
-    $query = mysqli_query($koneksi, "SELECT * FROM users WHERE username='$username' AND password='$password'");
-    $cek = mysqli_num_rows($query);
-
-    if ($cek > 0) {
-        $_SESSION['username'] = $username;
-        $_SESSION['status'] = "login"; // Ini adalah 'kunci' untuk masuk ke tambah.php
-        header("location:index.php"); 
-    } else {
-        // Jika gagal, kembali ke login dengan pesan eror
-        header("location:login.php?pesan=gagal");
-    }
+session_start();
+if (isset($_SESSION['status']) && $_SESSION['status'] == "login") {
+    header("location:index.php");
+    exit();
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>Login to your account</title>
-    <link rel="stylesheet" href="assets/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Monitoring Alat Laboratorium</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="asset/style.css">
+
+    <style>
+        /* Style bantuan untuk membungkus pesan error dari database PHP */
+        .alert-msg {
+            padding: 12px 20px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .alert-danger { background-color: #FEECEB; color: #D32F2F; border: 1px solid #FCD4D2; }
+        .alert-info { background-color: #EBF8FF; color: #2B6CB0; border: 1px solid #BEE3F8; }
+    </style>
 </head>
+<body>
 
-<body class="login-body">
-    <div class="login-card">
-        <h1>login to your account</h1>
+    <div class="auth-container">
         
-        <?php if(isset($_GET['pesan']) && $_GET['pesan'] == "gagal"): ?>
-            <p style="color: #721c24; background: #f8d7da; padding: 10px; border-radius: 10px; font-size: 0.8rem;">
-                Username atau Password salah!
-            </p>
-        <?php endif; ?>
-
-        <form action="" method="POST">
-            <div class="form-group" style="text-align: left; margin-bottom: 15px;">
-                <label style="display: block; margin-bottom: 5px; font-weight: 600;">Username</label>
-                <input type="text" name="username" class="login-input" placeholder="Enter your username" required>
+        <div class="left-side">
+            <div class="brand-logo"><i class="fas fa-microscope"></i> SISTEM MONITORING LAB</div>
+            <div class="main-title-box">
+                <h1>Monitoring Alat<br>Laboratorium.</h1>
+                <div class="line"></div>
             </div>
-            <div class="form-group" style="text-align: left; margin-bottom: 20px;">
-                <label style="display: block; margin-bottom: 5px; font-weight: 600;">Password</label>
-                <input type="password" name="password" class="login-input" placeholder="Enter your password" required>
+            <div></div>
+            <div class="circle-decoration"></div>
+            <div class="center-arrow-badge">
+                <div class="arrow-inner"><i class="fas fa-arrow-right"></i></div>
             </div>
-            <button type="submit" name="login" class="btn-masuk">Login</button>
-        </form>
-
-        <div class="login-footer" style="margin-top: 20px;">
-            <a href="lupa_password.php" class="link-kecil">lupa password?</a>
-            <p style="font-size: 0.9rem; margin-top: 10px;">Don't have an account? <a href="register.php" class="link-kecil">Register</a></p>
         </div>
+
+        <div class="right-side">
+            <div class="form-box">
+                <h2>Selamat Datang!</h2>
+
+                <?php 
+                if (isset($_GET['pesan'])) {
+                    if ($_GET['pesan'] == "gagal") {
+                        echo "<div class='alert-msg alert-danger'><i class='fas fa-exclamation-circle'></i> Login gagal! Username atau password salah.</div>";
+                    } else if ($_GET['pesan'] == "logout") {
+                        echo "<div class='alert-msg alert-info'><i class='fas fa-info-circle'></i> Anda telah berhasil logout.</div>";
+                    } else if ($_GET['pesan'] == "belum_login") {
+                        echo "<div class='alert-msg alert-danger'><i class='fas fa-lock'></i> Anda harus login untuk mengakses halaman admin.</div>";
+                    }
+                }
+                ?>
+                
+                <form action="login_aksi.php" method="POST">
+                    <div class="form-group">
+                        <label>Username / NIM</label>
+                        <input type="text" name="username" class="form-control" placeholder="Masukkan Username atau NIM" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" name="password" class="form-control" placeholder="Masukkan Password" required>
+                    </div>
+                    <button type="submit" class="btn-submit">Log in</button>
+                </form>
+
+                <div class="divider-container">belum punya akun mahasiswa?</div>
+                <a href="register.php" class="btn-secondary">BUAT AKUN</a>
+            </div>
+        </div>
+
     </div>
+
 </body>
 </html>

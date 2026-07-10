@@ -1,25 +1,44 @@
 <?php
 session_start();
-session_destroy(); // Menghapus sesi login
+
+// Menghapus semua data session
+session_unset();
+session_destroy();
 ?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Logout Berhasil</title>
-    <link rel="stylesheet" href="assets/style.css">
+    <title>Logout...</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="assets/style.css?v=<?php echo time(); ?>">
 </head>
-<body>
-    <div class="logout-container">
-        <div class="logout-msg-card">
-            <h2>Logout Berhasil!</h2>
-            <p>Sesi Anda telah berakhir. Terima kasih telah menggunakan sistem ini.</p>
-            
-            <a href="login.php" class="link-login-kecil">
-                &larr; Kembali ke halaman Login
-            </a>
-        </div>
-    </div>
+<body class="login-body">
+
+    <script>
+        // Memunculkan pop-up loading info sebelum dialihkan ke login
+        let timerInterval;
+        Swal.fire({
+            title: 'Mengunci Sesi...',
+            html: 'Berhasil keluar, mengalihkan dalam <b></b> milidetik.',
+            timer: 1200,
+            timerProgressBar: true,
+            didOpen: () => {
+                Swal.showLoading();
+                const timer = Swal.getPopup().querySelector("b");
+                timerInterval = setInterval(() => {
+                    timer.textContent = Swal.getTimerLeft();
+                }, 100);
+            },
+            willClose: () => {
+                clearInterval(timerInterval);
+            }
+        }).then((result) => {
+            // Setelah animasi selesai, lempar ke halaman login
+            window.location.href = "login.php";
+        });
+    </script>
+
 </body>
 </html>

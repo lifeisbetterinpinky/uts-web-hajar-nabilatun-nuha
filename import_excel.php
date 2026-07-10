@@ -15,6 +15,8 @@ if ($_SESSION['status'] != "login") {
     <title>Import Excel - MONITORING ALAT LABORATORIUM</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="assets/style.css?v=1.1">
+    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
     <nav class="navbar">
@@ -48,18 +50,23 @@ if ($_SESSION['status'] != "login") {
                 </div>
             </form>
         </div>
-
-        <?php if(isset($_SESSION['notif'])): ?>
-            <div style="margin-top:18px; padding:12px; border-radius:8px; background:#fff; border:1px solid #e5e7eb;">
-                <b style="color: <?php echo ($_SESSION['notif_type'] ?? 'success') === 'success' ? '#16a34a' : '#dc2626'; ?>">
-                    <?php echo ($_SESSION['notif_type'] ?? 'success') === 'success' ? 'Berhasil!' : 'Gagal!'; ?>
-                </b>
-                <div style="margin-top:6px;">
-                    <?php echo htmlspecialchars($_SESSION['notif']); ?>
-                </div>
-            </div>
-            <?php unset($_SESSION['notif']); unset($_SESSION['notif_type']); ?>
-        <?php endif; ?>
     </main>
+
+    <?php if(isset($_SESSION['notif'])): ?>
+        <script>
+            Swal.fire({
+                title: '<?php echo ($_SESSION['notif_type'] ?? 'success') === 'success' ? 'Berhasil!' : 'Gagal!'; ?>',
+                text: '<?php echo htmlspecialchars($_SESSION['notif']); ?>',
+                icon: '<?php echo ($_SESSION['notif_type'] ?? 'success') === 'success' ? 'success' : 'error'; ?>',
+                confirmButtonColor: '#B6CEB4', // Menyesuaikan warna tema webmu
+                confirmButtonText: 'OK'
+            });
+        </script>
+        <?php 
+        // Hapus session notifikasi agar pop-up tidak muncul berulang-ulang saat di-refresh
+        unset($_SESSION['notif']); 
+        unset($_SESSION['notif_type']); 
+        ?>
+    <?php endif; ?>
 </body>
 </html>
